@@ -12,9 +12,10 @@ class AltcoinSubscription {
     private val appKey = "62EAaF8025fF2b6CA6A3fb0f8dCb2858"
     private val channelName = "altcoins"
 
-    @Autowired private lateinit var dispatcher : BlocksAndTransactionsDispatcher
     private val client = RtmClientBuilder(endpoint, appKey)
             .build()
+
+    @Autowired private lateinit var dispatcher : BlocksAndTransactionsDispatcher
 
     fun subscribe() {
         client.createSubscription(channelName, SubscriptionMode.SIMPLE, dispatcher)
