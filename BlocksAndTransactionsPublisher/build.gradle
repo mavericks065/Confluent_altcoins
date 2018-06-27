@@ -11,17 +11,17 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
         classpath 'org.springframework:springloaded:1.2.6.RELEASE'
     }
 }
 
+apply plugin: 'idea'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'idea'
 
 idea {
     module {
@@ -46,9 +46,8 @@ repositories {
     jcenter()
 }
 
-
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web"
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
     compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
     compile "io.springfox:springfox-swagger2:2.7.0"
@@ -57,11 +56,12 @@ dependencies {
     compile 'org.apache.poi:poi-ooxml:3.16'
     compile 'com.squareup.okhttp3:okhttp:3.9.0'
     compile 'com.beust:klaxon:0.30'
-//    compile "org.springframework.boot:spring-boot-devtools:1.5.7.RELEASE"
     compile group: 'com.satori', name: 'satori-rtm-sdk-core', version: '1.1.5'
     compile group: 'com.satori', name: 'satori-rtm-sdk-jackson2', version:'1.1.5'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
 
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile "org.mockito:mockito-core:2.+"
     testCompile 'com.squareup.okhttp3:mockwebserver:3.9.0'
+    testCompile 'junit:junit:4.12'
 }

@@ -11,6 +11,7 @@ import org.mockito.Mockito.verify
 import org.mockito.internal.util.reflection.Whitebox
 import org.mockito.runners.MockitoJUnitRunner
 
+
 @RunWith(MockitoJUnitRunner::class)
 class AltcoinSubscriptionTest {
 
@@ -19,7 +20,7 @@ class AltcoinSubscriptionTest {
     @InjectMocks private lateinit var altcoinSubscriber: AltcoinSubscription
 
     @Test
-    fun should_make_sure_subscribe_create_a_subscription() {
+    fun `subscribe() should create a subscription and start the client`() {
         // GIVEN
         Whitebox.setInternalState(altcoinSubscriber, "client", client)
 
